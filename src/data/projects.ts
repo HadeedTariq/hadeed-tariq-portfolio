@@ -1,3 +1,11 @@
+export interface DemoCredential {
+  role: string;
+  email?: string;
+  phone?: string;
+  password: string;
+  notes?: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -18,13 +26,7 @@ export interface Project {
   role?: string; // e.g., "Frontend Developer", "Fullstack", "Solo Creator"
   featured: boolean; // true/false to highlight your best work at the top of your homepage
   summary?: string;
-  demoCredentials?: {
-    role: string;
-    email?: string;
-    phone?: string;
-    password: string;
-    notes?: string;
-  }[];
+  demoCredentials?: DemoCredential[];
 }
 
 export const projects: Project[] = [
@@ -682,6 +684,213 @@ The public demo has been adapted for portfolio purposes. Since wildcard DNS rout
     featured: true,
     summary:
       "Built a nationwide SEO-driven plumbing platform capable of dynamically serving approximately 150K–200K pages across 50 U.S. states and 19,000+ cities using Node.js, Express, Pug, AWS, and advanced SEO automation.",
+  },
+  {
+    id: 5,
+    title: "Editex",
+    projectType: "personal",
+    summary:
+      "A browser-based JavaScript code editor featuring a hierarchical file system, project collaboration, secure authentication, and real-time code execution powered by an online compiler API.",
+    tech: [
+      "React",
+      "NestJS",
+      "MongoDB",
+      "CodeMirror",
+      "JWT",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Online Compiler API",
+      "Vercel",
+    ],
+    gradient: "from-emerald-500 to-teal-600",
+    role: "Fullstack Developer",
+    featured: false,
+
+    videoUrl:
+      "https://res.cloudinary.com/lmsproject/video/upload/v1782481505/editex-final-video_xxrq7i.mp4",
+
+    liveDemoUrl: "https://editex-frontend.vercel.app/",
+    githubUrl: "https://github.com/HadeedTariq/editex",
+
+    demoCredentials: [
+      {
+        email: "computeranalog351@gmail.com",
+        password: "Hadeed@1234",
+        role: "user",
+      },
+    ],
+
+    description: `# Editex - JavaScript Code Editor
+
+## Overview
+
+Editex is a full-stack JavaScript code editor built to simulate the workflow of a lightweight online IDE. The application allows authenticated users to create projects, organize files and folders, write JavaScript using a professional editor, execute code directly from the browser, and collaborate with other developers through contributor management and merge requests.
+
+The primary focus of the project was designing the backend architecture, implementing a hierarchical file system, and building a scalable project management workflow.
+
+---
+
+## Technical Architecture
+
+### Authentication
+
+- JWT-based authentication
+- Secure login and registration flow
+- Protected backend routes using NestJS Guards
+- User session validation
+- Authorization for project ownership and collaboration
+
+---
+
+## Project Management
+
+Users can:
+
+- Create multiple projects
+- Update project information
+- Delete projects
+- Configure project visibility (Private/Public)
+- Browse public projects
+- View project-specific notifications
+
+The backend enforces ownership checks before allowing sensitive operations.
+
+---
+
+## Hierarchical File System
+
+One of the core engineering challenges was implementing a hierarchical project structure similar to a lightweight IDE.
+
+The application supports:
+
+- Folder creation
+- Nested file management
+- Code persistence
+- Folder updates
+- Dynamic project tree rendering
+
+Each project maintains an organized directory structure that allows users to separate code into multiple folders and files instead of working inside a single editor.
+
+---
+
+## Code Editor
+
+The editor is built using **CodeMirror**, providing features expected from a modern development environment:
+
+- JavaScript syntax highlighting
+- Auto indentation
+- Professional editing experience
+- Fast rendering for larger files
+- Live editing with persistent storage
+
+Code changes are saved to the backend, allowing projects to be resumed at any time.
+
+---
+
+## Code Execution Pipeline
+
+Instead of executing code locally, Editex integrates with an Online Compiler API.
+
+Execution workflow:
+
+1. User writes JavaScript code.
+2. Source code is sent securely to the backend.
+3. NestJS communicates with the compiler service.
+4. Execution results are returned to the client.
+5. Console output is displayed inside the application.
+
+This architecture keeps execution isolated from the frontend while providing a smooth development experience.
+
+---
+
+## Collaboration System
+
+Projects support collaborative development through contributor management.
+
+Implemented features include:
+
+- Contributor assignment
+- Merge request workflow
+- Project notifications
+- Notification status management
+
+This allows multiple developers to participate in the same project while maintaining controlled access.
+
+---
+
+## Backend Design
+
+The backend is developed using NestJS with a modular architecture.
+
+Major modules include:
+
+- Authentication
+- Projects
+- Files & Folders
+- Collaboration
+- Notifications
+
+MongoDB stores project metadata, user information, folder hierarchies, files, and notification data.
+
+---
+
+## Frontend
+
+The frontend is built with React and focuses on responsiveness and usability.
+
+Implemented features include:
+
+- Responsive dashboard
+- Project explorer
+- Dynamic file tree
+- Integrated code editor
+- Console output viewer
+- Authentication pages
+- Project management interface
+- Notification system
+
+The UI is styled using Tailwind CSS and Shadcn UI components.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- Tailwind CSS
+- Shadcn UI
+- CodeMirror
+
+### Backend
+
+- NestJS
+- JWT Authentication
+
+### Database
+
+- MongoDB
+
+### Services
+
+- Online Compiler API
+
+### Deployment
+
+- Vercel
+
+---
+
+## Engineering Highlights
+
+- Designed a modular NestJS backend architecture.
+- Built a hierarchical file and folder management system.
+- Integrated CodeMirror for a professional editing experience.
+- Implemented secure JWT authentication and authorization.
+- Developed a complete project collaboration workflow.
+- Connected the editor to an external compiler service for browser-based code execution.
+- Built reusable React components with responsive layouts using Tailwind CSS and Shadcn UI.
+`,
   },
   {
     id: 4,

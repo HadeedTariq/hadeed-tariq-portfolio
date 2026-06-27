@@ -21,9 +21,9 @@ export function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="/#" className="font-mono text-sm font-bold tracking-wider">
+        <Link href="/#" className="font-mono text-sm font-bold tracking-wider">
           <span className="gradient-text">HadeedTariq</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-1 md:flex">

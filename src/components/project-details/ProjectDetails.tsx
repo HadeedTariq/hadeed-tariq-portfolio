@@ -10,6 +10,7 @@ import { projects } from "@/data/projects";
 import { GithubIcon } from "../ui/icons";
 import { VideoPlayer } from "./VideoPlayer";
 import { ProjectNotFound } from "./ProjectNotFound";
+import { DemoCredentials } from "./ProjectDemoCredentials";
 
 // Lazy-load the markdown preview to keep the initial bundle light
 const MarkdownPreview = dynamic(
@@ -180,7 +181,7 @@ const ProjectDetails = () => {
         aria-hidden
       />
 
-      <div className="mx-auto max-w-4xl px-6 pt-12">
+      <div className="mx-auto max-w-4xl px-6 pt-2">
         {/* ── Back nav ──────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, x: -12 }}
@@ -254,7 +255,7 @@ const ProjectDetails = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14"
+          className="mb-4"
         >
           <VideoPlayer src={videoSrc} poster={poster} title={project.title} />
         </motion.div>
@@ -478,6 +479,15 @@ const ProjectDetails = () => {
         </motion.section>
 
         {/* ── Footer nav ────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="border-t border-border/30 pt-10"
+        >
+          <DemoCredentials credentials={project.demoCredentials} />
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

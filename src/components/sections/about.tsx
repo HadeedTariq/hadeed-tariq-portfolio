@@ -15,7 +15,7 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="py-32 px-6">
+    <section id="about" className="py-32 px-8">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           label="// about"
@@ -23,7 +23,7 @@ export function About() {
           description="Building performant applications focused on scalability, optimization, and real-world impact."
         />
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 mx-auto">
           {/* Image + Terminal */}
           <FadeIn direction="left">
             <div className="space-y-6">

@@ -33,7 +33,7 @@ export function About() {
                   alt="Muhammad Hadeed Tariq"
                   width={600}
                   height={600}
-                  className="aspect-square w-full object-cover"
+                  className="h-auto w-full max-w-full aspect-square object-cover"
                   priority
                 />
               </div>
@@ -50,7 +50,7 @@ export function About() {
                     </span>
                   </div>
 
-                  <pre className="font-mono text-xs leading-relaxed text-muted-foreground">
+                  <pre className="overflow-auto whitespace-pre-wrap break-all font-mono text-xs leading-relaxed text-muted-foreground">
                     <code>
                       {`$ whoami
 > hadeed_tariq

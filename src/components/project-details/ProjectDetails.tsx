@@ -275,7 +275,7 @@ const ProjectDetails = () => {
             }}
           />
 
-          <div className="relative z-10 flex items-center justify-between">
+          <div className="relative z-10 flex items-center justify-between max-[400px]:flex-col max-[400px]:items-start">
             <SectionLabel>Technologies</SectionLabel>
 
             <div

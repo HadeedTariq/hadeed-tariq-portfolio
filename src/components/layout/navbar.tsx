@@ -61,14 +61,14 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>

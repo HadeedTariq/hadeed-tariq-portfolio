@@ -32,130 +32,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Daily Dev Clone",
-    projectType: "personal",
-    summary:
-      "A high-performance social media platform for developers featuring raw SQL optimization, real-time community squad management, and fault-tolerant transactional architectures.",
-    tech: [
-      "React",
-      "Node",
-      "Express",
-      "Ts",
-      "Postgres",
-      "Vercel",
-      "OAUTH(Github)",
-    ],
-    gradient: "from-orange-500 to-amber-600", // A tech/developer focused orange-to-amber gradient
-    role: "Fullstack Developer",
-    featured: false,
-
-    // Video and Media assets
-    videoUrl:
-      "https://res.cloudinary.com/lmsproject/video/upload/f_auto,q_auto,vc_auto/v1780828405/export-1780817270160_Encoded_ogfsg4.mp4",
-
-    // Call-To-Action Links
-    liveDemoUrl: "https://daily-dev-frontend-pearl.vercel.app/",
-    githubUrl: "https://github.com/HadeedTariq/daily-dev",
-
-    // Raw Markdown Description Layout
-    description: `# Daily Dev Clone - A Social Media Platform for Developers
-
-## Approach
-
-I chose to use **raw SQL queries** instead of an ORM to have more control over database operations. ORMs often abstract away complexities, limiting deep understanding. By writing raw SQL, I gained a better grasp of how queries work under the hood. Additionally, I focused on **optimizing latency and bandwidth usage**, ensuring efficient data retrieval and storage.
-
----
-
-## Project Description
-
-**Daily Dev Clone** is a social media platform designed for developers. I built it using **raw SQL**, crafting complex queries, transactions, and fault-tolerant database schemas. I carefully placed **indexes only where necessary** to enhance performance, fine-tuning queries for efficiency.
-
----
-    
-## Backend Features
-
-### **Authentication**
-
-- Implemented user registration with customizable preferences.
-- Added validations to prevent duplicate accounts.
-- Enabled **magic link registration** for simple sign-up.
-- Ensured **transactional consistency** when verifying users and building profiles.
-- Used **BullMQ with Redis** for asynchronous email delivery, reducing latency.
-- Supported **refresh token-based reauthentication** when sessions expire.
-
-### **Follow System**
-
-- Designed SQL transactions to maintain consistency in **Follow/Following** operations.
-- Ensured **atomic updates** to user stats and notifications.
-- **Enforced constraints** preventing users from following themselves or following the same user multiple times.
-- Used a similar strategy for **Unfollow** operations.
-
-### **Posts**
-
-- Posts are the core of this platform, requiring **extensive query optimization**.
-
-#### **Creating Posts**
-
-- Developed an **auto-tag detection** feature to extract relevant tags from content.
-- Used a **Set data structure** to avoid redundancy.
-- Implemented **SQL injection protection** and data sanitization.
-
-#### **Fetching Posts**
-
-- Optimized post retrieval with **complex joins and fine-tuned queries**.
-- Implemented **cursor-based infinite scrolling** for reduced latency.
-- Sorted posts based on **user preferences (ID, upvotes, views, etc.).**
-- Leveraged **React Query** to minimize backend calls and enhance responsiveness.
-
-#### **Comments & Replies**
-
-- Built a full-fledged **comments and replies** system.
-- Used **cursor-based pagination** for handling large numbers of comments efficiently.
-- Implemented full **CRUD operations** for comments.
-
-#### **Post & Comment Upvotes**
-
-- Implemented an upvote system for both **posts and comments**.
-- Used **PostgreSQL transactions and constraints** to ensure a user can only upvote once.
-
-### **Squads (Developer Communities)**
-
-- Developed **squad creation and management** functionality.
-- Optimized **squad post retrieval** by reducing unnecessary columns and applying **cursor-based infinite scrolling**.
-- Implemented **squad statistics tracking** (e.g., number of members, posts, and likes).
-- Enforced **database constraints** to prevent users from joining a squad multiple times.
-- Created **role-based access control** (Admin, Mod, Member) with appropriate permissions.
-
-### **User Profiles**
-
-#### **Streaks**
-
-- Built a streak-tracking system to encourage engagement.
-- Ensured **streak updates occur only once per day**.
-- Utilized **Redis** to reduce database round trips and improve efficiency.
-
-#### **Profile Customization**
-
-- Allowed users to add **social links, README, company details, etc.**
-- Optimized profile update logic to modify **only the changed fields**.
-- Enforced that when a user updates their **main profile**, a **new access token** is issued to maintain data consistency.
-
----
-
-## Summary
-
-This project has been a **deep dive into raw SQL**, allowing me to:
-
-- **Master complex queries, transactions, and database constraints**.
-- **Optimize database performance** by fine-tuning queries and reducing unnecessary queries.
-- **Implement best practices** in authentication, user interactions, and data security.
-- **Utilize caching and pagination** to improve system efficiency and responsiveness.
-
-This project has significantly enhanced my backend development skills and database expertise while focusing on building a scalable, fault-tolerant system. 🚀`,
-  },
-
-  {
-    id: 2,
     title: "Accoswap",
     projectType: "professional",
     summary:
@@ -431,7 +307,284 @@ The source code resides in a private organizational repository and cannot be pub
     ],
   },
   {
+    id: 2,
+
+    title: "Webora",
+
+    projectType: "personal",
+
+    summary:
+      "A high-performance command-line web crawler built in Go that combines concurrent crawling, streaming parsers, intelligent request orchestration, and memory-efficient data structures to discover web assets, hidden endpoints, and application attack surfaces at scale.",
+
+    tech: [
+      "Go",
+      "HTTP",
+      "CLI",
+      "Concurrent Programming",
+      "Streaming Parsing",
+      "SAX Parser",
+      "JavaScript Lexer",
+      "CSS Lexer",
+      "Regex",
+      "FNV-1a Hashing",
+      "GitHub Actions",
+    ],
+
+    gradient: "from-emerald-600 to-cyan-700",
+
+    role: "Systems & Backend Engineer",
+
+    featured: true,
+
+    videoUrl:
+      "https://res.cloudinary.com/lmsproject/video/upload/v1782990056/Webora-final-video_Encoded_d5dqn1.mp4",
+
+    githubUrl: "https://github.com/HadeedTariq/webora",
+
+    description: `
+# Webora — High-Performance Streaming Web Crawler
+
+## Overview
+
+Webora is a production-oriented command-line web crawler written in Go that focuses on high-performance website discovery through concurrent execution, streaming parsers, optimized networking, and memory-efficient data structures.
+
+Instead of relying on heavyweight browser automation or constructing complete DOM trees, Webora processes web resources as continuous streams, allowing it to crawl large websites while maintaining a minimal memory footprint. The crawler is capable of extracting links from HTML, JavaScript, CSS, robots.txt, sitemaps, forms, assets, and developer comments while exposing a modern CLI interface for fine-grained crawl customization.
+
+---
+
+## Engineering Challenges Solved
+
+### High-Performance Crawling
+
+Designed a concurrent worker pool capable of efficiently crawling large websites while providing configurable worker limits, crawl depth restrictions, timeout handling, and request scheduling to maximize throughput without exhausting system resources.
+
+### Browser-Like HTTP Request Pipeline
+
+Implemented a customizable HTTP request engine capable of emulating real browser traffic through configurable headers, cookies, User-Agent spoofing, proxy support, proxy authentication, TLS verification control, request delays, randomized jitter, and optimized HEAD pre-flight requests before falling back to GET requests when required.
+
+This significantly improves crawl reliability while reducing rate limiting and basic bot detection.
+
+### Streaming Parsing Architecture
+
+Implemented a streaming parsing pipeline using SAX-based HTML parsing together with lexical JavaScript and CSS parsers.
+
+Instead of constructing entire DOM trees, resources are processed token-by-token as data arrives, dramatically reducing memory allocations while increasing crawl performance on large documents.
+
+### Hidden Endpoint Discovery
+
+Extended traditional crawling by extracting URLs from multiple sources including:
+
+- HTML elements
+- JavaScript API endpoints
+- CSS url() properties
+- HTML comments
+- robots.txt
+- Sitemap declarations
+
+This enables discovery of endpoints that are frequently missed by conventional crawlers and helps expose forgotten staging environments, internal APIs, archived resources, and hidden application routes.
+
+### Intelligent robots.txt Processing
+
+Implemented a streaming robots.txt parser capable of:
+
+- Respecting crawl directives
+- Ignoring policies when required
+- Crawling directive paths
+- Extracting sitemap declarations
+
+The parser processes files line-by-line without loading entire files into memory while performing constant-time rule lookups during crawling.
+
+### Memory Optimization
+
+Large-scale crawling introduces significant memory pressure due to millions of discovered URLs.
+
+To solve this, Webora stores discovered URLs using FNV-1a hashing, compressing long URL strings into compact uint64 values for duplicate detection while utilizing hash sets for constant-time lookups.
+
+Additional optimizations include MIME filtering, file-extension screening, configurable worker pools, and streaming parsers to minimize allocations throughout the crawl pipeline.
+
+### Crawl Safety & Resource Management
+
+Implemented multiple safeguards including:
+
+- Relative depth calculation
+- Subdomain boundary verification
+- MIME-type validation
+- Heavy asset filtering
+- Duplicate elimination
+- URL normalization
+- Configurable concurrency limits
+
+These mechanisms prevent recursive crawl loops, excessive bandwidth consumption, and unnecessary processing of non-parsable resources such as videos and other large binary assets.
+
+### Advanced CLI Experience
+
+Built a modern command-line interface featuring structured flag parsing, configurable crawling behaviors, regex-based URL filtering, inclusion rules, JSON Lines output, HTTP status reporting, proxy rotation, custom User-Agent rotation, and cross-platform compilation support.
+
+### Production Engineering Practices
+
+Applied static analysis throughout development to detect potential race conditions and improve code quality.
+
+Automated releases and project maintenance through GitHub Actions, continuous deployment workflows, dependency automation, and cross-platform binary generation, enabling reproducible builds for multiple operating systems.
+
+---
+
+## Key Features
+
+- Concurrent worker pool architecture
+- Streaming SAX HTML parser
+- JavaScript lexical endpoint extraction
+- CSS asset discovery
+- Browser-like request customization
+- Proxy authentication and rotation
+- User-Agent rotation
+- Configurable crawl delays and jitter
+- robots.txt parsing with sitemap extraction
+- HTML comment reconnaissance
+- Regex-based URL matching
+- Include-path filtering
+- JSON Lines output
+- HTTP status reporting
+- Constant-time duplicate detection
+- FNV-1a URL hashing
+- MIME-aware resource filtering
+- Cross-platform CLI builds
+- Automated CI/CD pipeline
+
+---
+
+## Technical Impact
+
+Webora demonstrates practical systems engineering concepts including concurrent programming, networking, streaming algorithms, compiler-style lexical parsing, memory optimization, HTTP protocol customization, CLI application design, and production-grade software automation.
+
+The project is designed for developers, security engineers, DevOps teams, and automation workflows that require fast, configurable, and resource-efficient website crawling without relying on browser automation.
+`,
+  },
+  {
     id: 3,
+    title: "Daily Dev Clone",
+    projectType: "personal",
+    summary:
+      "A high-performance social media platform for developers featuring raw SQL optimization, real-time community squad management, and fault-tolerant transactional architectures.",
+    tech: [
+      "React",
+      "Node",
+      "Express",
+      "Ts",
+      "Postgres",
+      "Vercel",
+      "OAUTH(Github)",
+    ],
+    gradient: "from-orange-500 to-amber-600", // A tech/developer focused orange-to-amber gradient
+    role: "Fullstack Developer",
+    featured: false,
+
+    // Video and Media assets
+    videoUrl:
+      "https://res.cloudinary.com/lmsproject/video/upload/f_auto,q_auto,vc_auto/v1780828405/export-1780817270160_Encoded_ogfsg4.mp4",
+
+    // Call-To-Action Links
+    liveDemoUrl: "https://daily-dev-frontend-pearl.vercel.app/",
+    githubUrl: "https://github.com/HadeedTariq/daily-dev",
+
+    // Raw Markdown Description Layout
+    description: `# Daily Dev Clone - A Social Media Platform for Developers
+
+## Approach
+
+I chose to use **raw SQL queries** instead of an ORM to have more control over database operations. ORMs often abstract away complexities, limiting deep understanding. By writing raw SQL, I gained a better grasp of how queries work under the hood. Additionally, I focused on **optimizing latency and bandwidth usage**, ensuring efficient data retrieval and storage.
+
+---
+
+## Project Description
+
+**Daily Dev Clone** is a social media platform designed for developers. I built it using **raw SQL**, crafting complex queries, transactions, and fault-tolerant database schemas. I carefully placed **indexes only where necessary** to enhance performance, fine-tuning queries for efficiency.
+
+---
+    
+## Backend Features
+
+### **Authentication**
+
+- Implemented user registration with customizable preferences.
+- Added validations to prevent duplicate accounts.
+- Enabled **magic link registration** for simple sign-up.
+- Ensured **transactional consistency** when verifying users and building profiles.
+- Used **BullMQ with Redis** for asynchronous email delivery, reducing latency.
+- Supported **refresh token-based reauthentication** when sessions expire.
+
+### **Follow System**
+
+- Designed SQL transactions to maintain consistency in **Follow/Following** operations.
+- Ensured **atomic updates** to user stats and notifications.
+- **Enforced constraints** preventing users from following themselves or following the same user multiple times.
+- Used a similar strategy for **Unfollow** operations.
+
+### **Posts**
+
+- Posts are the core of this platform, requiring **extensive query optimization**.
+
+#### **Creating Posts**
+
+- Developed an **auto-tag detection** feature to extract relevant tags from content.
+- Used a **Set data structure** to avoid redundancy.
+- Implemented **SQL injection protection** and data sanitization.
+
+#### **Fetching Posts**
+
+- Optimized post retrieval with **complex joins and fine-tuned queries**.
+- Implemented **cursor-based infinite scrolling** for reduced latency.
+- Sorted posts based on **user preferences (ID, upvotes, views, etc.).**
+- Leveraged **React Query** to minimize backend calls and enhance responsiveness.
+
+#### **Comments & Replies**
+
+- Built a full-fledged **comments and replies** system.
+- Used **cursor-based pagination** for handling large numbers of comments efficiently.
+- Implemented full **CRUD operations** for comments.
+
+#### **Post & Comment Upvotes**
+
+- Implemented an upvote system for both **posts and comments**.
+- Used **PostgreSQL transactions and constraints** to ensure a user can only upvote once.
+
+### **Squads (Developer Communities)**
+
+- Developed **squad creation and management** functionality.
+- Optimized **squad post retrieval** by reducing unnecessary columns and applying **cursor-based infinite scrolling**.
+- Implemented **squad statistics tracking** (e.g., number of members, posts, and likes).
+- Enforced **database constraints** to prevent users from joining a squad multiple times.
+- Created **role-based access control** (Admin, Mod, Member) with appropriate permissions.
+
+### **User Profiles**
+
+#### **Streaks**
+
+- Built a streak-tracking system to encourage engagement.
+- Ensured **streak updates occur only once per day**.
+- Utilized **Redis** to reduce database round trips and improve efficiency.
+
+#### **Profile Customization**
+
+- Allowed users to add **social links, README, company details, etc.**
+- Optimized profile update logic to modify **only the changed fields**.
+- Enforced that when a user updates their **main profile**, a **new access token** is issued to maintain data consistency.
+
+---
+
+## Summary
+
+This project has been a **deep dive into raw SQL**, allowing me to:
+
+- **Master complex queries, transactions, and database constraints**.
+- **Optimize database performance** by fine-tuning queries and reducing unnecessary queries.
+- **Implement best practices** in authentication, user interactions, and data security.
+- **Utilize caching and pagination** to improve system efficiency and responsiveness.
+
+This project has significantly enhanced my backend development skills and database expertise while focusing on building a scalable, fault-tolerant system. 🚀`,
+  },
+
+  {
+    id: 4,
     title: "Davis Plumbing & Irrigation",
     projectType: "professional",
     description: `
@@ -685,215 +838,9 @@ The public demo has been adapted for portfolio purposes. Since wildcard DNS rout
     summary:
       "Built a nationwide SEO-driven plumbing platform capable of dynamically serving approximately 150K–200K pages across 50 U.S. states and 19,000+ cities using Node.js, Express, Pug, AWS, and advanced SEO automation.",
   },
+
   {
     id: 5,
-    title: "Editex",
-    projectType: "personal",
-    summary:
-      "A browser-based JavaScript code editor featuring a hierarchical file system, project collaboration, secure authentication, and real-time code execution powered by an online compiler API.",
-    tech: [
-      "React",
-      "NestJS",
-      "MongoDB",
-      "CodeMirror",
-      "JWT",
-      "Tailwind CSS",
-      "Shadcn UI",
-      "Online Compiler API",
-      "Vercel",
-    ],
-    gradient: "from-emerald-500 to-teal-600",
-    role: "Fullstack Developer",
-    featured: false,
-
-    videoUrl:
-      "https://res.cloudinary.com/lmsproject/video/upload/v1782481505/editex-final-video_xxrq7i.mp4",
-
-    liveDemoUrl: "https://editex-frontend.vercel.app/",
-    githubUrl: "https://github.com/HadeedTariq/editex",
-
-    demoCredentials: [
-      {
-        email: "computeranalog351@gmail.com",
-        password: "Hadeed@1234",
-        role: "user",
-      },
-    ],
-
-    description: `# Editex - JavaScript Code Editor
-
-## Overview
-
-Editex is a full-stack JavaScript code editor built to simulate the workflow of a lightweight online IDE. The application allows authenticated users to create projects, organize files and folders, write JavaScript using a professional editor, execute code directly from the browser, and collaborate with other developers through contributor management and merge requests.
-
-The primary focus of the project was designing the backend architecture, implementing a hierarchical file system, and building a scalable project management workflow.
-
----
-
-## Technical Architecture
-
-### Authentication
-
-- JWT-based authentication
-- Secure login and registration flow
-- Protected backend routes using NestJS Guards
-- User session validation
-- Authorization for project ownership and collaboration
-
----
-
-## Project Management
-
-Users can:
-
-- Create multiple projects
-- Update project information
-- Delete projects
-- Configure project visibility (Private/Public)
-- Browse public projects
-- View project-specific notifications
-
-The backend enforces ownership checks before allowing sensitive operations.
-
----
-
-## Hierarchical File System
-
-One of the core engineering challenges was implementing a hierarchical project structure similar to a lightweight IDE.
-
-The application supports:
-
-- Folder creation
-- Nested file management
-- Code persistence
-- Folder updates
-- Dynamic project tree rendering
-
-Each project maintains an organized directory structure that allows users to separate code into multiple folders and files instead of working inside a single editor.
-
----
-
-## Code Editor
-
-The editor is built using **CodeMirror**, providing features expected from a modern development environment:
-
-- JavaScript syntax highlighting
-- Auto indentation
-- Professional editing experience
-- Fast rendering for larger files
-- Live editing with persistent storage
-
-Code changes are saved to the backend, allowing projects to be resumed at any time.
-
----
-
-## Code Execution Pipeline
-
-Instead of executing code locally, Editex integrates with an Online Compiler API.
-
-Execution workflow:
-
-1. User writes JavaScript code.
-2. Source code is sent securely to the backend.
-3. NestJS communicates with the compiler service.
-4. Execution results are returned to the client.
-5. Console output is displayed inside the application.
-
-This architecture keeps execution isolated from the frontend while providing a smooth development experience.
-
----
-
-## Collaboration System
-
-Projects support collaborative development through contributor management.
-
-Implemented features include:
-
-- Contributor assignment
-- Merge request workflow
-- Project notifications
-- Notification status management
-
-This allows multiple developers to participate in the same project while maintaining controlled access.
-
----
-
-## Backend Design
-
-The backend is developed using NestJS with a modular architecture.
-
-Major modules include:
-
-- Authentication
-- Projects
-- Files & Folders
-- Collaboration
-- Notifications
-
-MongoDB stores project metadata, user information, folder hierarchies, files, and notification data.
-
----
-
-## Frontend
-
-The frontend is built with React and focuses on responsiveness and usability.
-
-Implemented features include:
-
-- Responsive dashboard
-- Project explorer
-- Dynamic file tree
-- Integrated code editor
-- Console output viewer
-- Authentication pages
-- Project management interface
-- Notification system
-
-The UI is styled using Tailwind CSS and Shadcn UI components.
-
----
-
-## Tech Stack
-
-### Frontend
-
-- React
-- Tailwind CSS
-- Shadcn UI
-- CodeMirror
-
-### Backend
-
-- NestJS
-- JWT Authentication
-
-### Database
-
-- MongoDB
-
-### Services
-
-- Online Compiler API
-
-### Deployment
-
-- Vercel
-
----
-
-## Engineering Highlights
-
-- Designed a modular NestJS backend architecture.
-- Built a hierarchical file and folder management system.
-- Integrated CodeMirror for a professional editing experience.
-- Implemented secure JWT authentication and authorization.
-- Developed a complete project collaboration workflow.
-- Connected the editor to an external compiler service for browser-based code execution.
-- Built reusable React components with responsive layouts using Tailwind CSS and Shadcn UI.
-`,
-  },
-  {
-    id: 4,
     title: "Real Estate Scraper",
     projectType: "professional",
     summary:
@@ -1164,5 +1111,213 @@ After the scraping process completes, extracted property information is normaliz
 - Easily extensible provider architecture
 - Clean separation of concerns
 - Scalable and maintainable codebase`,
+  },
+
+  {
+    id: 6,
+    title: "Editex",
+    projectType: "personal",
+    summary:
+      "A browser-based JavaScript code editor featuring a hierarchical file system, project collaboration, secure authentication, and real-time code execution powered by an online compiler API.",
+    tech: [
+      "React",
+      "NestJS",
+      "MongoDB",
+      "CodeMirror",
+      "JWT",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Online Compiler API",
+      "Vercel",
+    ],
+    gradient: "from-emerald-500 to-teal-600",
+    role: "Fullstack Developer",
+    featured: false,
+
+    videoUrl:
+      "https://res.cloudinary.com/lmsproject/video/upload/v1782481505/editex-final-video_xxrq7i.mp4",
+
+    liveDemoUrl: "https://editex-frontend.vercel.app/",
+    githubUrl: "https://github.com/HadeedTariq/editex",
+
+    demoCredentials: [
+      {
+        email: "computeranalog351@gmail.com",
+        password: "Hadeed@1234",
+        role: "user",
+      },
+    ],
+
+    description: `# Editex - JavaScript Code Editor
+
+## Overview
+
+Editex is a full-stack JavaScript code editor built to simulate the workflow of a lightweight online IDE. The application allows authenticated users to create projects, organize files and folders, write JavaScript using a professional editor, execute code directly from the browser, and collaborate with other developers through contributor management and merge requests.
+
+The primary focus of the project was designing the backend architecture, implementing a hierarchical file system, and building a scalable project management workflow.
+
+---
+
+## Technical Architecture
+
+### Authentication
+
+- JWT-based authentication
+- Secure login and registration flow
+- Protected backend routes using NestJS Guards
+- User session validation
+- Authorization for project ownership and collaboration
+
+---
+
+## Project Management
+
+Users can:
+
+- Create multiple projects
+- Update project information
+- Delete projects
+- Configure project visibility (Private/Public)
+- Browse public projects
+- View project-specific notifications
+
+The backend enforces ownership checks before allowing sensitive operations.
+
+---
+
+## Hierarchical File System
+
+One of the core engineering challenges was implementing a hierarchical project structure similar to a lightweight IDE.
+
+The application supports:
+
+- Folder creation
+- Nested file management
+- Code persistence
+- Folder updates
+- Dynamic project tree rendering
+
+Each project maintains an organized directory structure that allows users to separate code into multiple folders and files instead of working inside a single editor.
+
+---
+
+## Code Editor
+
+The editor is built using **CodeMirror**, providing features expected from a modern development environment:
+
+- JavaScript syntax highlighting
+- Auto indentation
+- Professional editing experience
+- Fast rendering for larger files
+- Live editing with persistent storage
+
+Code changes are saved to the backend, allowing projects to be resumed at any time.
+
+---
+
+## Code Execution Pipeline
+
+Instead of executing code locally, Editex integrates with an Online Compiler API.
+
+Execution workflow:
+
+1. User writes JavaScript code.
+2. Source code is sent securely to the backend.
+3. NestJS communicates with the compiler service.
+4. Execution results are returned to the client.
+5. Console output is displayed inside the application.
+
+This architecture keeps execution isolated from the frontend while providing a smooth development experience.
+
+---
+
+## Collaboration System
+
+Projects support collaborative development through contributor management.
+
+Implemented features include:
+
+- Contributor assignment
+- Merge request workflow
+- Project notifications
+- Notification status management
+
+This allows multiple developers to participate in the same project while maintaining controlled access.
+
+---
+
+## Backend Design
+
+The backend is developed using NestJS with a modular architecture.
+
+Major modules include:
+
+- Authentication
+- Projects
+- Files & Folders
+- Collaboration
+- Notifications
+
+MongoDB stores project metadata, user information, folder hierarchies, files, and notification data.
+
+---
+
+## Frontend
+
+The frontend is built with React and focuses on responsiveness and usability.
+
+Implemented features include:
+
+- Responsive dashboard
+- Project explorer
+- Dynamic file tree
+- Integrated code editor
+- Console output viewer
+- Authentication pages
+- Project management interface
+- Notification system
+
+The UI is styled using Tailwind CSS and Shadcn UI components.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- Tailwind CSS
+- Shadcn UI
+- CodeMirror
+
+### Backend
+
+- NestJS
+- JWT Authentication
+
+### Database
+
+- MongoDB
+
+### Services
+
+- Online Compiler API
+
+### Deployment
+
+- Vercel
+
+---
+
+## Engineering Highlights
+
+- Designed a modular NestJS backend architecture.
+- Built a hierarchical file and folder management system.
+- Integrated CodeMirror for a professional editing experience.
+- Implemented secure JWT authentication and authorization.
+- Developed a complete project collaboration workflow.
+- Connected the editor to an external compiler service for browser-based code execution.
+- Built reusable React components with responsive layouts using Tailwind CSS and Shadcn UI.
+`,
   },
 ];
